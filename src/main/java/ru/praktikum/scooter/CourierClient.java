@@ -12,7 +12,7 @@ public class CourierClient extends BaseClient {
     private static final String COURIER_PATH = "api/v1/courier/";
 
 
-    @Step
+
     public ValidatableResponse create(Courier courier) {
         return given()
                 .spec(getBaseSpec())
@@ -22,7 +22,7 @@ public class CourierClient extends BaseClient {
                 .then();
     }
 
-    @Step
+
     public ValidatableResponse login(CourierAuth credentials) {
         return given()
                 .spec(getBaseSpec())
@@ -32,7 +32,6 @@ public class CourierClient extends BaseClient {
                 .then();
     }
 
-    @Step
     public boolean delete(int courierId) {
         return given()
                 .spec(getBaseSpec())
