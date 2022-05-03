@@ -30,8 +30,8 @@ public class CourierCreationTest {
     public void createRequestReturnsSuccessStatusCode() {
         ValidatableResponse response = courierClient.create(courier);
         int statusCode = response.extract().statusCode();
-        assertEquals(STATUS_CODE_WRONG, 201, statusCode);
         courierId = courierClient.login(CourierAuth.from(courier)).extract().path("id");
+        assertEquals(STATUS_CODE_WRONG, 201, statusCode);
     }
 
     @Test
@@ -39,8 +39,8 @@ public class CourierCreationTest {
     public void createRequestReturnsSuccessMessage() {
         ValidatableResponse response = courierClient.create(courier);
         boolean isCreated = response.extract().path("ok");
-        assertTrue("Courier is not created.", isCreated);
         courierId = courierClient.login(CourierAuth.from(courier)).extract().path("id");
+        assertTrue("Courier is not created.", isCreated);
     }
 
     @Test
@@ -50,9 +50,10 @@ public class CourierCreationTest {
         ValidatableResponse response = courierClient.create(courier);
         int statusCode = response.extract().statusCode();
         String errorMessage = response.extract().path("message");
+        courierId = courierClient.login(CourierAuth.from(courier)).extract().path("id");
         assertEquals(STATUS_CODE_WRONG, 409, statusCode);
         assertEquals ("Error message is wrong.", "Этот логин уже используется. Попробуйте другой.", errorMessage);
-        courierId = courierClient.login(CourierAuth.from(courier)).extract().path("id");
     }
+
 
 }

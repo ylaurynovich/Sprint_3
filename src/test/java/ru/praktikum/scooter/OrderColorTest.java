@@ -22,7 +22,7 @@ public class OrderColorTest {
         this.expectedStatusCode = expectedStatusCode;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Создание заказа с определенным цветом самоката: {0} черный {1} серый {2} серый и черный {3} без цвета")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {List.of("BLACK"), 201},

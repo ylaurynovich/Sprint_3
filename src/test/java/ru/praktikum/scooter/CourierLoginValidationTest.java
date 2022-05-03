@@ -22,7 +22,7 @@ public class CourierLoginValidationTest {
         this.expectedErrorMessage = expectedErrorMessage;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = "Логин курьера: {0} отсутствие пароля {1} отсутствие логина")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {Courier.getLoginOnly(), 400, "Недостаточно данных для входа"},

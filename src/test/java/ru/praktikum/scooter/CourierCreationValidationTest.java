@@ -22,7 +22,7 @@ public class CourierCreationValidationTest {
         this.expectedErrorMessage = expectedErrorMessage;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Создание курьера: {0} валидные данные {1} только логин {3} только пароль.")
     public static Object[][] getTestData() {
         return new Object[][]{
                 {Courier.getLoginAndPassword(), 201, null},
@@ -33,7 +33,7 @@ public class CourierCreationValidationTest {
     }
 
     @Test
-    @DisplayName("Создание курьера: 1 - валидные данные, 2 - без пароля, 3 - без логина")
+    @DisplayName("Создание курьера")
     public void invalidCourierCreateRequest() {
         ValidatableResponse response = new CourierClient().create(courier);
         int statusCode = response.extract().statusCode();
