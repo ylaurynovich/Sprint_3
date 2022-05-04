@@ -9,7 +9,7 @@ public class OrderClient extends BaseClient {
 
     private static final String ORDER_PATH = "/api/v1/orders/";
 
-    @Step
+    @Step("Создание заказа")
     public ValidatableResponse create(Order order) {
         return given()
                 .spec(getBaseSpec())
@@ -19,7 +19,7 @@ public class OrderClient extends BaseClient {
                 .then();
     }
 
-    @Step
+    @Step("Получение списка заказов")
     public ValidatableResponse getOrderList() {
         return given()
                 .spec(getBaseSpec())
@@ -28,6 +28,7 @@ public class OrderClient extends BaseClient {
                 .then();
     }
 
+    @Step("Получение списка заказов")
     public boolean cancel(int orderTrack) {
         return given()
                 .spec(getBaseSpec())
