@@ -1,10 +1,7 @@
 package ru.praktikum.scooter;
 
 import io.qameta.allure.Step;
-import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import org.apache.commons.lang3.RandomStringUtils;
-import java.util.ArrayList;
 import static io.restassured.RestAssured.*;
 
 public class CourierClient extends BaseClient {
