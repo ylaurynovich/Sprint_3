@@ -33,7 +33,7 @@ public class CourierCreationValidationTest {
     }
 
     @Test
-    @DisplayName("Создание курьера")
+    @DisplayName("Создание курьера: 1 - валидные данные, 2 - только логин, 3 - только пароль")
     public void invalidCourierCreateRequest() {
         ValidatableResponse response = new CourierClient().create(courier);
         int statusCode = response.extract().statusCode();
