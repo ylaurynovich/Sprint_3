@@ -28,7 +28,7 @@ public class OrderClient extends BaseClient {
                 .then();
     }
 
-    @Step("Получение списка заказов")
+    @Step("Отменить заказ")
     public boolean cancel(int orderTrack) {
         return given()
                 .spec(getBaseSpec())
